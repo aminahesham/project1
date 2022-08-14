@@ -17,7 +17,7 @@ use App\Http\Controllers\UsersController;
 */
 
 //update post
-Route::get('updatepost/{id}', [PostController::class ,'updatePost'])->name('update');
+Route::post('updatepost/{id}', [PostController::class ,'updatePost'])->name('update');
 
 //display all posts 
 Route::get('allposts'        , [PostController::class  ,'showPosts']);

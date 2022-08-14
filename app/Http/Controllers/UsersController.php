@@ -19,15 +19,10 @@ class UsersController extends Controller
     }
 
     public function userPosts($id){
-       // $users =User::find($id);
 
         $user = User::where('id', $id)->first();
         $posts = Post::where('user_id', $user->id)->get();
-
-       // $posts = Post:: where ('user_id', $id )->get();
-
-       // $posts=Post::where('user_id' ,'=', $id)->get();
-
+        
         return view('userposts',compact('user','posts'));
     }
 
