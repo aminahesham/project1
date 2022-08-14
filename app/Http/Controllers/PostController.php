@@ -18,6 +18,13 @@ public function createPostView(){
     }
 
 public function createPost(Request $request){ 
+    $validated = $request->validate([
+        'title'   => 'required | max:50 ',
+        'content' => 'required',
+    ]);
+    if ($validated -> fails()){
+        return $validated-> errors()->first();
+    }
     Post::create([
     'title'         => $request -> title,
     'content'       => $request -> content,
@@ -38,7 +45,7 @@ public function createPost(Request $request){
         if(!$posts)
         return redirect()->back();
         $posts=Post::select('title' ,'content')->find($id);
-        return view('getpost',compact('posts'));
+        return view('updatepost',compact('posts'));
        }
 
     public function updatePost(Request $request,$id){
@@ -49,4 +56,6 @@ public function createPost(Request $request){
         $posts->update($request->all());
         return redirect('allposts'); 
       }
+
+     
 }

@@ -47,7 +47,15 @@ form {
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-            
+                @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
     <div class="py-12">
 
@@ -61,16 +69,21 @@ form {
 
 <div class="form-group">
   <label for="name_ar" style="color:black" ><b>Title</b></label><br>
-  <input type="text"  name="title" value="" maxlength="50" size="30" placeholder="title"><br><br>
+  <input type="text"  name="title" value="" maxlength="50" size="30" placeholder="title" class="@error('title') is-invalid @enderror"><br><br>
+  @error('title')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
 </div>      
 
 
 
 <div class="form-group">
   <label for="price" style="color:black"><b>Content</b></label><br>
-  <input type="text" id="contnet" name="content" value="" maxlength="50" size="30" placeholder="contnet"><br><br>
+  <input type="text" id="contnet" name="content" value="" maxlength="50" size="30" placeholder="contnet" class="@error('content') is-invalid @enderror"><br><br>
+  @error('content')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
 </div>
-
 
 
 
@@ -80,6 +93,7 @@ form {
 </fieldset>
 </form>
 </div>
+
 </div>
             </div>
         </div>

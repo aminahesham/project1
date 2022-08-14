@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UsersController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,9 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//update post
+Route::get('updatepost/{id}', [PostController::class ,'updatePost'])->name('update');
 
 //display all posts 
 Route::get('allposts'        , [PostController::class  ,'showPosts']);
@@ -32,5 +37,12 @@ Route::get('deletepost/{id}' , [PostController::class ,'deletePost']);
 //return spicefic post by its id 
 Route::get('getpost/{id}'    , [PostController::class ,'getPost']);
 
-//update post
-Route::post('updatepost/{id}', [PostController::class ,'updatePost'])->name('updatepost');
+
+
+
+
+
+Route::get('allusers'        , [UsersController::class ,'showUsers']);
+
+Route::get('userposts/{id}'  , [UsersController::class ,'userPosts']);
+

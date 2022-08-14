@@ -18,15 +18,37 @@ class PostSeeder extends Seeder
         
         DB::table('posts')->insert([
 
+            'user_id'   => '1',
             'title'     => 'first post  ',
             'content'   => 'this post is talking about laravel framework ',
            
         ]);
 
         DB::table('posts')->insert([
-
+            'user_id'   => '3',
             'title'     => 'second post  ',
             'content'   => 'this post is talking about php basics  ',
+           
+        ]);
+
+        DB::table('posts')->insert([
+            'user_id'   => '2',
+            'title'     => 'laravel   ',
+            'content'   => 'this post is talking about laravel framework  ',
+           
+        ]);
+
+        DB::table('posts')->insert([
+            'user_id'   => '4',
+            'title'     => 'backend ',
+            'content'   => 'this post is talking about backend development ',
+           
+        ]);
+
+        DB::table('posts')->insert([
+            'user_id'   => '1',
+            'title'     => 'frontend   ',
+            'content'   => 'this post is talking about frontend  ',
            
         ]);
 

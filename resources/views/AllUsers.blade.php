@@ -70,9 +70,13 @@ a.button{
     border-radius: 15px;
     cursor: pointer;  
 }
+
 </style> 
 
     
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
 
 
@@ -81,21 +85,22 @@ a.button{
 
 <tr id="fr">
   <th scope="col">ID</th>
-  <th scope="col">Title</th>
-  <th scope="col">Content</th>
-  <th scope="col"></th>
+  <th scope="col">Name</th>
+  <th scope="col">E-mail</th>
+  <th scope="col">Roles</th>
+  <th scope="col">Edit</th>
 </tr>
 
-  @foreach($posts as $post)
+  @foreach($users as $user)
   <tr>
-  <th scope="row">{{$post->id}}</th>
-    <td>{{$post -> title}}</td>
-    <td>{{$post -> content}}</td>
+  <th scope="row">{{$user->id}}</th>
+    <td>{{$user -> name}}</td>
+    <td>{{$user -> email}}</td>
     
 
     <td>
 
-<button onclick="window.location.href='{{url('getpost/'.$post-> id)}}'" id="submit"style="color:blue;">update</button>
+<button onclick="window.location.href='{{url('userposts/'.$user-> id)}}'" id="submit"style="color:blue;">User Posts</button>
 
 <br><br>
 
