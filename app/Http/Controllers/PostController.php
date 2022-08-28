@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
+
+use Session;
 
 class PostController extends Controller
 {
@@ -18,20 +21,21 @@ public function createPostView(){
     }
 
 public function createPost(Request $request){ 
+   
     $validated = $request->validate([
         'title'   => 'required | max:50 ',
         'content' => 'required',
     ]);
-    if ($validated -> fails()){
-        return $validated-> errors()->first();
-    }
     Post::create([
     'title'         => $request -> title,
     'content'       => $request -> content,
+    'user_id'       => $request -> user_id,
     
     ]);
     return view('showposts');
     }
+
+
 
     public function deletePost($id){
 

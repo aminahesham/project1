@@ -13,7 +13,12 @@ class Post extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+
+        return response()->json([
+            'status' => true,
+            'posts' => $posts
+        ]);
     }
 
     /**
@@ -34,7 +39,13 @@ class Post extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = Post::create($request->all());
+
+        return response()->json([
+            'status' => true,
+            'message' => "Post Created successfully!",
+            'post' => $post
+        ], 200);
     }
 
     /**
@@ -68,7 +79,13 @@ class Post extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post->update($request->all());
+
+        return response()->json([
+            'status' => true,
+            'message' => "Post Updated successfully!",
+            'post' => $post
+        ], 200);
     }
 
     /**
@@ -79,6 +96,11 @@ class Post extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post->delete();
+
+        return response()->json([
+            'status' => true,
+            'message' => "Post Deleted successfully!",
+        ], 200);
     }
 }

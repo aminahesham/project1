@@ -85,40 +85,21 @@ button:hover {
 
     <div align="center">
 
-<form id="form" method="POST" action="{{URL('insertpost')}}" enctype="multipart/form-data">
+<form id="form" method="POST" action="insertcity" enctype="multipart/form-data">
 @csrf
 <fieldset id="fieldset">
-<h1 style="color:#04AA6D; font-size:20px; text-align: center;">Create Post </h1><br>
+<h1 style="color:#04AA6D; font-size:20px; text-align: center;">Add City </h1><br>
 
 
 <div class="form-group">
-  <label for="name_ar" style="color:black" ><b>Title</b></label><br>
-  <input type="text"  name="title" value="" maxlength="50" size="30" placeholder="title" class="@error('title') is-invalid @enderror"><br><br>
-  @error('title')
-    <div class="alert alert-danger">{{ $message }}</div>
-  @enderror
+  <label for="name_ar" style="color:black" ><b>name</b></label><br>
+  <input type="text"  name="name" value="" maxlength="50" size="30" placeholder="name" ><br><br>
+  
 </div>      
 
 
 
-<div class="form-group">
-  <label for="price" style="color:black"><b>Content</b></label><br>
-  <input type="text" id="contnet" name="content" value="" maxlength="50" size="30" placeholder="contnet" class="@error('content') is-invalid @enderror"><br><br>
-  @error('content')
-    <div class="alert alert-danger">{{ $message }}</div>
-  @enderror
-</div>
-
-<div class="form-group">
-  <label for="price" style="color:black"><b>User Id</b></label><br>
-  <input type="text" id="contnet" name="user_id" value="" maxlength="50" size="30" placeholder="user_id" class="@error('user_id') is-invalid @enderror"><br><br>
- 
-</div>
-
-
-
-
-  <input type="submit" id="submit" value="save" formmethod="POST" formaction="{{url('insertpost')}}"><br><br>
+  <input type="submit" id="submit" value="save" formmethod="POST"><br><br>
 
 
 </fieldset>

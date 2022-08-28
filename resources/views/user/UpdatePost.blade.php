@@ -56,7 +56,7 @@ input[type=text], input[type=password] ,input[type=email]{
 
     <div align="center">
 
-<form id="form" method="post" action="updatepost.$posts->id" enctype="multipart/form-data">
+<form id="form" method="post" action="userupdatepost.$posts->id" enctype="multipart/form-data">
 @csrf
 <br><br>
 <h3 style="color:black; text-align: center;font-size:20px;">Update Post</h3><br>
@@ -77,7 +77,7 @@ input[type=text], input[type=password] ,input[type=email]{
 
 
 
-<button onclick="window.location.href='{{url('updateposts/'.$posts-> id)}}'" id="submit"style="color:blue;">Update</button>
+<button onclick="window.location.href='{{url('userupdateposts/'.$posts-> id)}}'" id="submit"style="color:blue;">Update</button>
 
 
 </form>

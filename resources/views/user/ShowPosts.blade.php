@@ -73,11 +73,9 @@ a.button{
 </style> 
 
     
-<button onclick="window.location.href='{{url('createpost/')}}'" id="submit"style="color:blue;">Create Post</button>
+<button onclick="window.location.href='{{url('usercreatepost/')}}'" id="submit"style="color:blue;">Create Post</button>
 
-<button onclick="window.location.href='{{url('allusers/')}}'" id="submit"style="color:blue;">Show All Users</button>
 
-<button onclick="window.location.href='{{url('showcity/')}}'" id="submit"style="color:blue;">Show City Table</button>
 
 
 
@@ -104,7 +102,7 @@ a.button{
 
     <td>
 
-<button onclick="window.location.href='{{url('getpost/'.$post-> id)}}'" id="submit"style="color:blue;">update</button><br>
+<button onclick="window.location.href='{{url('usergetpost/'.$post-> id)}}'" id="submit"style="color:blue;">update</button><br>
 <button onclick="window.location.href='{{url('deletepost/'.$post->id)}}'" id="submit"style="background-color:red;">Delete</button>
 
 

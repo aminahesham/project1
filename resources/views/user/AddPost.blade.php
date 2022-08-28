@@ -85,7 +85,7 @@ button:hover {
 
     <div align="center">
 
-<form id="form" method="POST" action="{{URL('insertpost')}}" enctype="multipart/form-data">
+<form id="form" method="POST" action="{{URL('userinsertpost')}}" enctype="multipart/form-data">
 @csrf
 <fieldset id="fieldset">
 <h1 style="color:#04AA6D; font-size:20px; text-align: center;">Create Post </h1><br>
@@ -118,7 +118,7 @@ button:hover {
 
 
 
-  <input type="submit" id="submit" value="save" formmethod="POST" formaction="{{url('insertpost')}}"><br><br>
+  <input type="submit" id="submit" value="save" formmethod="POST" ><br><br>
 
 
 </fieldset>

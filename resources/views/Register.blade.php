@@ -1,4 +1,8 @@
+<?php
+use App\Models\City;
 
+$city = City :: all();
+?>
 <style>
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -85,16 +89,16 @@ button:hover {
 
     <div align="center">
 
-<form id="form" method="POST" action="{{URL('insertpost')}}" enctype="multipart/form-data">
+<form id="form" method="POST" action="{{URL('storedata')}}" enctype="multipart/form-data">
 @csrf
 <fieldset id="fieldset">
-<h1 style="color:#04AA6D; font-size:20px; text-align: center;">Create Post </h1><br>
+<h1 style="color:#04AA6D; font-size:20px; text-align: center;">Register </h1><br>
 
 
 <div class="form-group">
-  <label for="name_ar" style="color:black" ><b>Title</b></label><br>
-  <input type="text"  name="title" value="" maxlength="50" size="30" placeholder="title" class="@error('title') is-invalid @enderror"><br><br>
-  @error('title')
+  <label for="name" style="color:black" ><b>Name</b></label><br>
+  <input type="text"  name="name" value="" maxlength="50" size="30" placeholder="name" class="@error('name') is-invalid @enderror"><br><br>
+  @error('name')
     <div class="alert alert-danger">{{ $message }}</div>
   @enderror
 </div>      
@@ -102,23 +106,36 @@ button:hover {
 
 
 <div class="form-group">
-  <label for="price" style="color:black"><b>Content</b></label><br>
-  <input type="text" id="contnet" name="content" value="" maxlength="50" size="30" placeholder="contnet" class="@error('content') is-invalid @enderror"><br><br>
-  @error('content')
+  <label for="email" style="color:black"><b>Email</b></label><br>
+  <input type="email" id="email" name="email" value="" maxlength="50" size="30" placeholder="email" class="@error('email') is-invalid @enderror"><br><br>
+  @error('email')
     <div class="alert alert-danger">{{ $message }}</div>
   @enderror
 </div>
 
+
 <div class="form-group">
-  <label for="price" style="color:black"><b>User Id</b></label><br>
-  <input type="text" id="contnet" name="user_id" value="" maxlength="50" size="30" placeholder="user_id" class="@error('user_id') is-invalid @enderror"><br><br>
- 
+  <label for="password" style="color:black"><b>Password</b></label><br>
+  <input type="password" id="password" name="password" value="" maxlength="50" size="30" placeholder="password" class="@error('password') is-invalid @enderror"><br><br>
+  @error('password')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
+</div>
+
+
+<div class="form-group">
+<select name="city_id">
+    <option for="city_id" value="$index->id">Select City:</option>
+    @foreach($city as $index)
+    <option value="{{$index->id}}">{{$index -> name}}</option>
+    @endforeach
+  </select> 
 </div>
 
 
 
 
-  <input type="submit" id="submit" value="save" formmethod="POST" formaction="{{url('insertpost')}}"><br><br>
+  <input type="submit" id="submit" value="save" formmethod="POST"><br><br>
 
 
 </fieldset>

@@ -7,6 +7,7 @@ use App\Models\Post;
         $posts=Post::all();
 
 
+
 ?>
 
 <style>
@@ -78,7 +79,9 @@ a.button{
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-
+<center>
+<h2>Users Table</h2>
+</center>
 
 <table style="width:99%;margin:5px;">
 
@@ -87,7 +90,6 @@ a.button{
   <th scope="col">ID</th>
   <th scope="col">Name</th>
   <th scope="col">E-mail</th>
-  <th scope="col">Roles</th>
   <th scope="col">Edit</th>
 </tr>
 

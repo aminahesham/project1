@@ -1,13 +1,4 @@
-<?php
 
-use App\Models\User;
-use App\Models\Post;
-
-        $users=User::all();
-        $posts=Post::all();
-
-
-?>
 
 <style>
 
@@ -66,48 +57,45 @@ a.button{
 }  
 
 #submit:hover{ 
-    font-size: 14px;
+    font-size: 15px;
     border-radius: 15px;
-    cursor: pointer; 
+    cursor: pointer;  
 }
+
 </style> 
 
     
-<button onclick="window.location.href='{{url('createpost/')}}'" id="submit"style="color:blue;">Create Post</button>
 
-<button onclick="window.location.href='{{url('allusers/')}}'" id="submit"style="color:blue;">Show All Users</button>
-
-<button onclick="window.location.href='{{url('showcity/')}}'" id="submit"style="color:blue;">Show City Table</button>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
 
-
+        <button onclick="window.location.href='{{url('addcity/')}}'" id="submit"style="color:blue;">Add New City</button>
 <center>
-<h2>Posts Table</h2>
+<h2>Cities Table</h2>
 </center>
-
 <table style="width:99%;margin:5px;">
 
 
 <tr id="fr">
   <th scope="col">ID</th>
-  <th scope="col">Title</th>
-  <th scope="col">Content</th>
-  <th scope="col"></th>
+  <th scope="col">Name</th>
+  
+  <th scope="col">Edit</th>
 </tr>
 
-  @foreach($posts as $post)
+  @foreach($city as $index)
   <tr>
-  <th scope="row">{{$post->id}}</th>
-    <td>{{$post -> title}}</td>
-    <td>{{$post -> content}}</td>
+  <th scope="row">{{$index->id}}</th>
+    <td>{{$index -> id}}</td>
+    <td>{{$index -> name}}</td>
     
 
     <td>
 
-<button onclick="window.location.href='{{url('getpost/'.$post-> id)}}'" id="submit"style="color:blue;">update</button><br>
-<button onclick="window.location.href='{{url('deletepost/'.$post->id)}}'" id="submit"style="background-color:red;">Delete</button>
+<button onclick="window.location.href='{{url('cityuser/'.$index->id)}}'" id="submit"style="color:blue;">users in this city</button>
 
-
+<button onclick="window.location.href='{{url('cityposts/'.$index->id)}}'" id="submit"style="background-color:blue;">posts in this city</button>
 
 
 <br><br>
